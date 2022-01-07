@@ -60,13 +60,5 @@ assignmentsRoutes.get('/delete', function(req, res){
 
 })
 
-// endpoints
-assignmentsRoutes.get('/api/assignments', function(req, res){
-    res.json(assignment);
-    res.status(200);
-});
-// NEEDS WORK 
-assignmentsRoutes.get('/api/summary', function(req,res){
-    res.json({average, assignment})
-});
+
 export default assignmentsRoutes;
