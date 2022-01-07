@@ -19,7 +19,16 @@ let assignment: Assignment[] = [
 ];
 
 assignmentsRoutes.get('/', function(req, res){
-    res.render('home', {assignment});
+    let totalScore: number = 0;
+    let average: number= 0;
+    assignment.forEach(item => {
+        if(item.completed === true){
+            totalScore += (item.score / item.total) * 100;
+        }
+    });
+    average = totalScore / assignment.length;
+    average.toFixed(2);
+    res.render('home', {assignment, average});
 });
 
 export default assignmentsRoutes;
