@@ -30,5 +30,31 @@ assignmentsRoutes.get('/', function(req, res){
     average.toFixed(2);
     res.render('home', {assignment, average});
 });
+assignmentsRoutes.get('/add', function(req, res){
+    res.render('add');
+});
+assignmentsRoutes.post('/add', function(req, res){
+    // let name: string = req.body.name as string;
+    // let score: number = parseInt(req.body.score as string);
+    // let total: number = parseInt(req.body.total as string);
+    // let completed: boolean = !!(req.body.completed as string);
+    let newAssignment: Assignment = {
+        name: req.body.name ,
+        score: req.body.score,
+        total: req.body.total,
+        completed: req.body.completed
+    }
+    if(req.body.completed){
+        req.body.completed = true;
+    } else req.body.completed = false;
+    assignment.push(newAssignment);
+    res.render('added', {newAssignment})
+});
 
+assignmentsRoutes.get('/delete', function(req, res){
+    res.render('delete');
+});
+assignmentsRoutes.get('/delete', function(req, res){
+    
+})
 export default assignmentsRoutes;

@@ -26,11 +26,12 @@
 				<td>{{score}}</td>
 				<td>{{total}}</td>
                 <td>{{completed}}</td> {{!--&#10003;  checkmark? --}}
+				<td><a href="/delete">Delete</a></td>
 			</tr>
 		{{/each}}
 		</tbody>
 	</table>
-    <p>Overall Average: {{average}}</p>
+    <p>Overall Average: {{average}}%</p>
     <a href="/add">Add an Assignment</a>
 </body>
 </html>
