@@ -20,13 +20,13 @@
 			</tr>
 		</thead>
 		<tbody>
-		{{#each assignment}}
+		{{#each assignments}}
 			<tr>
 				<td>{{name}}</td>
 				<td>{{score}}</td>
 				<td>{{total}}</td>
                 <td>{{completed}}</td> {{!--&#10003;  checkmark? --}}
-				<td><a href="/delete">Delete</a></td>
+				<td><a href="/{{id}}/delete">Delete</a></td>
 			</tr>
 		{{/each}}
 		</tbody>

@@ -24,11 +24,23 @@ createAssignment({name: "Oceans Unit Test", score: 0, total: 25, completed: fals
 
 
 export function createAssignment(assignment: Assignment):void{
-    assignment.id = nextId++;
+    assignment.id = nextId;
+    nextId++;
     data.push(assignment);
 }
 export function readAllAssignments():Assignment[]{
     return data;
+}
+
+export function deleteById(id: number):string{
+    let name: string = "";
+    data.forEach(item => {
+        if(item.id === id){
+            data.splice(id-1, 1);
+            name = item.name;
+        }
+    })
+    return name;
 }
 
 export function averageScore(assignment: Assignment[]): number{
