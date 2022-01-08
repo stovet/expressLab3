@@ -1,5 +1,6 @@
 import express from 'express'
 import Assignment from '../models/Assignment'
+import { averageScore } from '../models/assignments-database';
 
 const assignmentsRoutes = express.Router();
 
@@ -21,15 +22,9 @@ let assignment: Assignment[] = [
 let average: number = 0;
 
 assignmentsRoutes.get('/', function(req, res){
-    let totalScore: number = 0;
-    let average: number= 0;
-    assignment.forEach(item => {
-        if(item.completed === true){
-            totalScore += (item.score / item.total) * 100;
-        }
-    });
-    average = totalScore / assignment.length;
-    average.toFixed(2);
+    let average: number = averageScore(assignment)
+    //parseFloat(average.toFixed(1)); 
+    //Math.round(average);
     res.render('home', {assignment, average});
 });
 assignmentsRoutes.get('/add', function(req, res){
