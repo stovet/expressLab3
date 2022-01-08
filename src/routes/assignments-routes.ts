@@ -24,29 +24,24 @@ let average: number = 0;
 assignmentsRoutes.get('/', function(req, res){
     let assignments = readAllAssignments();
     let average: number = averageScore(assignments)
-    //parseFloat(average.toFixed(1)); 
-    //Math.round(average);
     res.render('home', {assignments, average});
 });
 assignmentsRoutes.get('/add', function(req, res){
     res.render('add');
 });
 assignmentsRoutes.post('/add', function(req, res){
-    // let name: string = req.body.name as string;
-    // let score: number = parseInt(req.body.score as string);
-    // let total: number = parseInt(req.body.total as string);
      let completed: boolean = !!(req.body.completed as string);
-     let assignments = readAllAssignments();
+     
     let newAssignment: Assignment = {
         name: req.body.name ,
         score: req.body.score,
         total: req.body.total,
         completed
     }
+    createAssignment(newAssignment);
     if(req.body.completed){
         completed = true;
     } else completed = false;
-    data.push(newAssignment);
     res.render('added', {newAssignment})
 });
 
