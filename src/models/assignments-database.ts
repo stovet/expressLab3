@@ -34,12 +34,12 @@ export function readAllAssignments():Assignment[]{
 
 export function deleteById(id: number):string{
     let name: string = "";
-    data.forEach(item => {
-        if(item.id === id){
-            data.splice(id-1, 1);
-            name = item.name;
-        }
-    })
+    const index: number = data.findIndex(item => {
+        item.id === id;
+        name = item.name;
+    });
+    data.splice(index, 1);
+
     return name;
 }
 
@@ -63,7 +63,6 @@ export function averageScoreApi(assignment: Assignment[]): number{
     let score: number = 0;
     let total: number = 0;
     let average: number= 0;
-    let count: number = 0;
     assignment.forEach(item => {
         if(item.completed === true){
             score+= item.score;
