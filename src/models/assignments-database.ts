@@ -50,7 +50,6 @@ export function averageScore(assignment: Assignment[]): number{
     let score: number = 0;
     let total: number = 0;
     let average: number= 0;
-    let count: number = 0;
     assignment.forEach(item => {
         if(item.completed === true){
             score+= item.score;
