@@ -35,9 +35,12 @@ export function readAllAssignments():Assignment[]{
 export function deleteById(id: number):string{
     let name: string = "";
     const index: number = data.findIndex(item => {
-        item.id === id;
-        name = item.name;
+        if(item.id === id){
+            name = item.name;
+            return item.id === id;
+        }
     });
+
     data.splice(index, 1);
 
     return name;
