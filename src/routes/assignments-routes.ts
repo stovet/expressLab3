@@ -31,7 +31,7 @@ assignmentsRoutes.get('/add', function(req, res){
 });
 assignmentsRoutes.post('/add', function(req, res){
      let completed: boolean = !!(req.body.completed as string);
-     
+     let complete: string = ""; 
     let newAssignment: Assignment = {
         name: req.body.name ,
         score: req.body.score,
@@ -39,10 +39,10 @@ assignmentsRoutes.post('/add', function(req, res){
         completed
     }
     createAssignment(newAssignment);
-    if(req.body.completed){
-        completed = true;
-    } else completed = false;
-    res.render('added', {newAssignment})
+    if(completed){
+        complete = "Yes";
+    } else complete = "No";
+    res.render('added', {newAssignment, complete})
 });
 
 assignmentsRoutes.get('/delete', function(req, res){

@@ -25,7 +25,11 @@
 				<td>{{name}}</td>
 				<td>{{score}}</td>
 				<td>{{total}}</td>
-                <td>{{completed}}</td> {{!--&#10003;  checkmark? --}}
+				{{#if completed}}
+                <td>&#10003;</td> {{!--&#10003;  checkmark? --}}	
+				{{else}}
+				<td></td>				
+				{{/if}}
 				<td><a href="/{{id}}/delete">Delete</a></td>
 			</tr>
 		{{/each}}
