@@ -34,8 +34,8 @@ assignmentsRoutes.post('/add', function(req, res){
      let complete: string = ""; 
     let newAssignment: Assignment = {
         name: req.body.name ,
-        score: req.body.score,
-        total: req.body.total,
+        score: Number(req.body.score),
+        total: Number(req.body.total),
         completed
     }
     createAssignment(newAssignment);

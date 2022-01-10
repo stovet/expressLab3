@@ -56,10 +56,13 @@ export function averageScore(assignment: Assignment[]): number{
             total+= item.total;
         }
     });
+    console.log(score)
+    console.log(total)
     average = (score / total) * 100;
     if(average){
         return parseFloat(average.toFixed(1));
     } return 0;
+   
 }
 export function averageScoreApi(assignment: Assignment[]): number{
     let score: number = 0;
